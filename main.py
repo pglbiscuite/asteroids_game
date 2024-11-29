@@ -1,8 +1,10 @@
 # this allows us to use code from
 # the open-source pygame library
 # throughout this file
+
 import pygame
 import sys
+from shot import *
 from constants import *
 from player import Player
 from asteroidfield import *
@@ -18,6 +20,7 @@ def main():
 Screen width: 1280
 Screen height: 720""")
 
+    group_shots = pygame.sprite.Group()
     group_asteroids = pygame.sprite.Group()
     group_updatable = pygame.sprite.Group()
     group_drawable = pygame.sprite.Group()
@@ -26,7 +29,7 @@ Screen height: 720""")
     player = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2)
     AsteroidField.containers = (group_updatable,)
     asteroid_field = AsteroidField()
-
+    Shot.containers = (group_shots, group_updatable, group_drawable)
 
     while True:
         for event in pygame.event.get():
