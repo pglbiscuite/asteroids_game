@@ -51,13 +51,14 @@ Screen height: 720""")
                print("Game over!")
                sys.exit()
 
+
        #    Bullet Collision Check
         
         for shot in group_shots:
             for asteroid in group_asteroids:
                 if shot.collides_with(asteroid):
                     shot.kill()
-                    asteroid.kill()
+                    asteroid.split()
 
 
 
