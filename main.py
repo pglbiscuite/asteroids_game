@@ -50,7 +50,17 @@ Screen height: 720""")
             if player.collides_with(asteroid):
                print("Game over!")
                sys.exit()
-       
+
+       #    Bullet Collision Check
+        
+        for shot in group_shots:
+            for asteroid in group_asteroids:
+                if shot.collides_with(asteroid):
+                    shot.kill()
+                    asteroid.kill()
+
+
+
        #    Draw Everything
         screen.fill((0, 0, 0)) 
         for drawing in group_drawable:
